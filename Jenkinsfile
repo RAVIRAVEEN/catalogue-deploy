@@ -11,7 +11,7 @@ pipeline {
     options {
         timeout(time: 1, unit: 'HOURS') 
         disableConcurrentBuilds()
-       //  ansiColor('xterm')
+         ansiColor('xterm')
        
     }
 
@@ -33,6 +33,18 @@ pipeline {
                 """
             }
         }
+          stage('init') {
+            steps {
+                sh """
+                   cd terraform 
+                   terraform init --backend-config=${parms.envinorment}/backend.tf
+                   -reconfigure
+                    
+                """
+            }
+        }
+
+
          }
     
     
