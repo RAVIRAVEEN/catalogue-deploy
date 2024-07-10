@@ -22,60 +22,60 @@ pipeline {
   
 
    }
-//   build
-    stages {
-        stage('get the version') {
-            steps {
-                script {
-                        def packageJson = readJSON file: 'package.json'
-                            packageVersion = packageJson.version
-                            echo "application version: $packageVersion"
-               }
-            }
-        }
-        stage('install dependencies') {
-            steps {
-                    sh """
+// //   build
+//     stages {
+//         stage('get the version') {
+//             steps {
+//                 script {
+//                         def packageJson = readJSON file: 'package.json'
+//                             packageVersion = packageJson.version
+//                             echo "application version: $packageVersion"
+//                }
+//             }
+//         }
+//         stage('install dependencies') {
+//             steps {
+//                     sh """
 
-                     npm install
+//                      npm install
 
-                    """
-            }
-        }
-        stage('build') {
-            steps {
-                sh  """
+//                     """
+//             }
+//         }
+//         stage('build') {
+//             steps {
+//                 sh  """
 
-                 ls -la
-                 zip -q -r catalogue.zip ./* -x ".git" -x "*.zip"
-                 ls -ltr
+//                  ls -la
+//                  zip -q -r catalogue.zip ./* -x ".git" -x "*.zip"
+//                  ls -ltr
 
-                """
-            }
-        }
+//                 """
+//             }
+//         }
 
-        stage ( 'publish artifact') {
+//         stage ( 'publish artifact') {
 
-         steps {
-                  nexusArtifactUploader (
-                  nexusVersion: 'nexus3',
-                  protocol: 'http',
-                  nexusUrl: "${nexusURL}",
-                  groupId: 'com.roboshop',
-                  version: "${packageVersion}",
-                  repository: 'catalogue',
-                  credentialsId: 'nexus-auth',
-                  artifacts: [
-                 [artifactId: 'catalogue',
-                 classifier: '',
-                 file: 'catalogue.zip',
-                 type: 'zip']
-        ]
-     )
-         }
+//          steps {
+//                   nexusArtifactUploader (
+//                   nexusVersion: 'nexus3',
+//                   protocol: 'http',
+//                   nexusUrl: "${nexusURL}",
+//                   groupId: 'com.roboshop',
+//                   version: "${packageVersion}",
+//                   repository: 'catalogue',
+//                   credentialsId: 'nexus-auth',
+//                   artifacts: [
+//                  [artifactId: 'catalogue',
+//                  classifier: '',
+//                  file: 'catalogue.zip',
+//                  type: 'zip']
+//         ]
+//      )
+//          }
 
     
-            }
+          //  }
         stage('print version') {
 
             steps{
@@ -106,4 +106,3 @@ pipeline {
    
     }
 
-}
