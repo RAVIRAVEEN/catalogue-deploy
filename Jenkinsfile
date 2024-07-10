@@ -8,7 +8,7 @@ pipeline {
 //    //    packageVersion = ' '
 // //       nexusURL = '172.31.36.245:8081'
 // }
-//     options {
+    options {
         timeout(time: 1, unit: 'HOURS') 
         disableConcurrentBuilds()
        
@@ -106,3 +106,4 @@ pipeline {
    
     }
 
+}
