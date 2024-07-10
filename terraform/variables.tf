@@ -26,6 +26,6 @@ variable "environment" {
   default = "dev"
 }
 
-variable " app_version" {
+# variable " app_version" {
   
-}
+# }
