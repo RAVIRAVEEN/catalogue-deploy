@@ -24,7 +24,6 @@ pipeline {
 
    }
 // //   build
-   stages {
         stages {
           stage('Print version') {
             steps {
@@ -36,7 +35,7 @@ pipeline {
         }
          }
     
-    }
+    
     //  post build 
      post { 
         always { 
