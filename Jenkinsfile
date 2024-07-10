@@ -16,7 +16,7 @@ pipeline {
 
 
    parameters {
-        string(name: 'version', defaultValue: ' ', description: 'What is the artifact version?')
+        string(name: 'version', defaultValue: '1.0.0', description: 'What is the artifact version?')
         string(name: 'environment', defaultValue: ' dev ', description: 'What is the environment?')
 
   
@@ -24,58 +24,6 @@ pipeline {
    }
 // //   build
    stages {
-        stage('get the version') {
-            steps {
-                script {
-                        def packageJson = readJSON file: 'package.json'
-                            packageVersion = packageJson.version
-                            echo "application version: $packageVersion"
-               }
-            }
-        }
-//         stage('install dependencies') {
-//             steps {
-//                     sh """
-
-//                      npm install
-
-//                     """
-//             }
-//         }
-//         stage('build') {
-//             steps {
-//                 sh  """
-
-//                  ls -la
-//                  zip -q -r catalogue.zip ./* -x ".git" -x "*.zip"
-//                  ls -ltr
-
-//                 """
-//             }
-//         }
-
-//         stage ( 'publish artifact') {
-
-//          steps {
-//                   nexusArtifactUploader (
-//                   nexusVersion: 'nexus3',
-//                   protocol: 'http',
-//                   nexusUrl: "${nexusURL}",
-//                   groupId: 'com.roboshop',
-//                   version: "${packageVersion}",
-//                   repository: 'catalogue',
-//                   credentialsId: 'nexus-auth',
-//                   artifacts: [
-//                  [artifactId: 'catalogue',
-//                  classifier: '',
-//                  file: 'catalogue.zip',
-//                  type: 'zip']
-//         ]
-//      )
-//          }
-
-    
-          //  }
         stage('print version') {
 
             steps{
