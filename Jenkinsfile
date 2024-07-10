@@ -30,6 +30,7 @@ pipeline {
                 sh """
                     
                 echo "version: ${params.version}"
+                echo "version: ${params.environment}"
 
                 """
             }
