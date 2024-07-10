@@ -4,11 +4,11 @@ pipeline {
          label 'agent-1' 
      }
 }
-   environment {   
-   //    packageVersion = ' '
-//       nexusURL = '172.31.36.245:8081'
-}
-    options {
+//    environment {   
+//    //    packageVersion = ' '
+// //       nexusURL = '172.31.36.245:8081'
+// }
+//     options {
         timeout(time: 1, unit: 'HOURS') 
         disableConcurrentBuilds()
        
@@ -17,7 +17,7 @@ pipeline {
 
    parameters {
         string(name: 'version', defaultValue: ' ', description: 'What is the artifact version?')
-        string(name: 'environment', defaultValue: ' ', description: 'What is the environment?')
+        string(name: 'environment', defaultValue: ' dev ', description: 'What is the environment?')
 
   
 
