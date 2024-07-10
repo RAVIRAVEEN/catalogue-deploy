@@ -25,8 +25,8 @@ pipeline {
    }
 // //   build
    stages {
-         stages {
-        stage('Print version') {
+        stages {
+          stage('Print version') {
             steps {
                 sh """
                     echo "version: ${params.version}"
