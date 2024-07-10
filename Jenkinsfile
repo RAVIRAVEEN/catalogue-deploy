@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh """
                    cd terraform 
-                   terraform init --backend-config=${parms.envinorment}/backend.tf
+                   terraform init --backend-config=${parms.environment}/backend.tf
                    -reconfigure
                     
                 """
