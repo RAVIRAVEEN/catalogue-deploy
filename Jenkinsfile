@@ -23,7 +23,7 @@ pipeline {
 
    }
 // //   build
-//     stages {
+   stages {
 //         stage('get the version') {
 //             steps {
 //                 script {
