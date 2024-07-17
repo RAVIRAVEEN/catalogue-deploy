@@ -19,8 +19,7 @@ pipeline {
    parameters {
         string(name: 'version', defaultValue: ' ', description: 'What is the artifact version?')
         string(name: 'environment', defaultValue: 'dev', description: 'What is the environment?')
-        booleanParam(name:'Destroy' defaultValue: 'false', description: 'what to destroy')
-        booleanParam(name:'Create' defaultValue: 'false', description: 'what to Create')
+       booleanParam(name: 'Destroy', defaultValue: 'false', description: 'What to destroy?')
    }
 // //   build
         stages {
