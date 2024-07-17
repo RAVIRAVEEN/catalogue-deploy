@@ -29,3 +29,8 @@ variable "environment" {
  variable "app_version" {
   
  }
+
+ variable "iam_instance_profile" {
+  default = "ec2roleforshellscript"
+   
+ }
